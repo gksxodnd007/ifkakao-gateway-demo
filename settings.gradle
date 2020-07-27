@@ -1,0 +1,5 @@
+rootProject.name = 'ifkakao'
+
+include 'spring-cloud-gateway'
+include 'zuul2'
+include 'zuul'
