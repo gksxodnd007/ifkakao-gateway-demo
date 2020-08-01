@@ -47,9 +47,20 @@ project(':spring-cloud-gateway') {
 }
 
 project(':zuul2') {
+    apply plugin: 'groovy'
+
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter'
+        implementation 'org.apache.httpcomponents:httpclient:4.5.12'
         implementation 'com.netflix.zuul:zuul-core:2.1.5'
+    }
+
+    sourceSets {
+        main {
+            java { srcDirs = [] } // no source dirs for the java compiler
+            groovy { srcDirs = ["src/main/java", "src/main/groovy"] }  // compile everything in src/ with groovy
+            resources { srcDirs = ["src/main/resources"] }
+        }
     }
 }
 
